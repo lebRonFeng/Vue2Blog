@@ -1,6 +1,6 @@
 <template>
     <div>
-        <i class="iconfont" :class="fontClass"></i>
+        <i class="iconfont icon-container" :class="fontClass"></i>
     </div>
 </template>
 <script>
