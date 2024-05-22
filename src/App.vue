@@ -1,19 +1,33 @@
 <template>
   <div id="app">
-    <h1>App组件</h1>
     <div class="test-container">
-      <SiteAside />
+      <Layout>
+        <template #left>
+          <div class="left">
+            左边栏区域，宽度适应内容，溢出隐藏
+          </div>
+        </template>
+        <div class="main">
+          主区域，宽度占满剩余空间，溢出隐藏 主区域，宽度占满剩余空间，溢出隐藏 主区域，宽度占满剩余空间，溢出隐藏 主区域，宽度占满剩余空间，溢出隐藏
+        </div>
+        <template #right>
+          <div class="right">
+            右边栏区域，宽度适应内容，溢出隐藏
+          </div>
+        </template>
+      </Layout>
     </div>
-
   </div>
 </template>
 
 <script>
-import SiteAside from "./components/SiteAside"
+import Layout from "./components/Layout"
+// import SiteAside from "./components/SiteAside"
 export default {
   name: 'App',
   components: {
-    SiteAside
+    Layout,
+    // SiteAside
   },
 
 }
@@ -21,9 +35,28 @@ export default {
 </script>
 
 <style scoped lang="less">
-@import "~@/styles/global.less";
 .test-container {
-  width: 250px;
-  margin: 0 auto; 
+  width: 80%;
+  height: 600px;
+  border: 2px solid;
+  margin: 0 auto;
+}
+
+.left {
+  width: 200px;
+  height: 100%;
+  background: lightcoral;
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  background: lightblue;
+}
+
+.right {
+  width: 150px;
+  height: 100%;
+  background: rgb(89, 227, 92);
 }
 </style>
