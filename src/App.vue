@@ -2,43 +2,36 @@
   <div id="app">
     <h1>App组件</h1>
     <div class="test-container">
-      <ImageLoader 
-        src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit-crop&crop=entropy&w=3456&h=2304" 
-        placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100" 
-        :duration="3000"
-        @load="handleLoaded"/>
+      <Contact />
     </div>
 
   </div>
 </template>
 
 <script>
-import ImageLoader from "./components/ImageLoader"
+import Contact from "./components/Contact"
 export default {
   name: 'App',
   components: {
-    ImageLoader
+    Contact
   },
   data() {
     return {
 
     }
   },
-methods:{
-  handleLoaded() {
-    console.log("图片加载完成")
-  }
-}
+
 }
 
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .test-container {
-  width: 500px;
+  width: 400px;
   height: 400px;
-  border: 2px solid;
+  border: 2px solid red;
+  background: #000;
   margin: 0 auto;
-  /* position: relative; */
+  padding-top: 200px;
 }
 </style>
