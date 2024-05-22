@@ -37,7 +37,7 @@
           <div class="icon weixin">
             <Icon type="weixin" />
           </div>
-          <span>dsfggasas</span>
+          <span>3267788650</span>
         </a>
         <div class="pop">
           <img
@@ -78,6 +78,8 @@
       }
     }
     a {
+      text-decoration: none;
+      color: gray;
       cursor: pointer;
       display: flex;
       align-items: center;

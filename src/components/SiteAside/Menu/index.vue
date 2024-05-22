@@ -71,7 +71,6 @@ export default {
     a {
         &.selected {
             background: #2d2d2d;
-            ;
         }
 
         padding:0 50px;
