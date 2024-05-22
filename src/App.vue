@@ -2,23 +2,18 @@
   <div id="app">
     <h1>App组件</h1>
     <div class="test-container">
-      <Contact />
+      <Menu />
     </div>
 
   </div>
 </template>
 
 <script>
-import Contact from "./components/Contact"
+import Menu from "./components/Menu"
 export default {
   name: 'App',
   components: {
-    Contact
-  },
-  data() {
-    return {
-
-    }
+    Menu
   },
 
 }
@@ -32,6 +27,5 @@ export default {
   border: 2px solid red;
   background: #000;
   margin: 0 auto;
-  padding-top: 200px;
 }
 </style>
