@@ -1,13 +1,19 @@
 <template>
     <nav class="menu-container">
-        <a v-for="item in items" :key="item.link" 
-        :href="item.link" 
-        :class="{selected: isSelected(item)}">
+        <RouterLink 
+            :exact="item.exact" 
+            v-for="item in items" 
+            :key="item.link"
+            active-class="selected" 
+            exact-active-class=""
+            :to="item.link">
             <div class="icon">
                 <Icon :type="item.icon" />
             </div>
-            <span>{{item.title}}</span>
-        </a>
+            <span>{{ item.title }}</span>
+        </RouterLink>
+        <!-- 命名路由
+        <RouterLink :to="{name: item.name}"></RouterLink> -->
     </nav>
 </template>
 
@@ -24,40 +30,33 @@ export default {
                     link: "/",
                     title: "首页",
                     icon: "home",
+                    exact: true
                 },
                 {
                     link: "/blog",
                     title: "文章",
                     icon: "blog",
-                    startWith: true, // 只要当前路径以link开头，当前菜单就是选中的
+                    exact: false
                 },
                 {
                     link: "/about",
                     title: "关于我",
                     icon: "about",
+                    exact: true
                 },
                 {
                     link: "/project",
                     title: "项目&效果",
                     icon: "code",
+                    exact: true
                 },
                 {
                     link: "/message",
                     title: "留言板",
                     icon: "chat",
+                    exact: true
                 },
             ]
-        }
-    }, 
-    methods:{
-        isSelected(item){
-            var link = item.link.toLowerCase()
-            var curPathname = location.pathname.toLowerCase()
-            if(item.startWith){
-                return curPathname.startsWith('blog')
-            }else {
-                return curPathname === link;
-            }
         }
     }
 }

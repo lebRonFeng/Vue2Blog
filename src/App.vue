@@ -7,7 +7,7 @@
           </div>
         </template>
         <div class="main">
-          主区域
+          <RouterView/>
         </div>
       </Layout>
     </div>
