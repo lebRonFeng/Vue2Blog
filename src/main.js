@@ -34,7 +34,11 @@ Vue.config.productionTip = false
 // }).$mount('#app')
 
 // vm.$sayHello()
- 
+
+// import showMessage from './utils/showMessage'
+// window.showMessage = showMessage;
+import showMessage from './utils/showMessage'
+Vue.prototype.showMessage = showMessage;
 new Vue({
   router,
   render: h => h(App),
