@@ -24,14 +24,12 @@ export default function(options = {}){
   const typeClassName = styles[`message-${type}`]; //类型样式名
   div.className = `${styles.message} ${typeClassName}`;
   // 将div加入到容器中
-  if(!container){
-    container = document.body;
-  }else {
+
     // 容器的position是否改动过
     if(getComputedStyle(container).position === 'static'){
       container.style.position = 'relative';
     }
-  }
+
   container.appendChild(div);
 
   // 浏览器强行渲染
