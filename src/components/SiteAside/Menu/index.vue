@@ -12,8 +12,6 @@
             </div>
             <span>{{ item.title }}</span>
         </RouterLink>
-        <!-- 命名路由
-        <RouterLink :to="{name: item.name}"></RouterLink> -->
     </nav>
 </template>
 

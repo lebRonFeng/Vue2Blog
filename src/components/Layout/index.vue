@@ -1,33 +1,34 @@
 <template>
   <div class="layout-container">
-    <header>
+    <div class="left">
       <slot name="left"></slot>
-    </header>
-    <main>
+    </div>
+    <div class="main">
       <slot></slot>
-    </main>
-    <footer>
+    </div>
+    <div class="right">
       <slot name="right"></slot>
-    </footer>
+    </div>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped lang="less">
-.layout-container{
+.layout-container {
   width: 100%;
   height: 100%;
   display: flex;
-  .left, .right{
+  .left,
+  .right {
     flex: 0 0 auto;
+    overflow: hidden;
   }
-  .main{
+  .main {
     flex: 1 1 auto;
+    overflow: hidden;
   }
 }
 </style>
