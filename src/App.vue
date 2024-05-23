@@ -8,6 +8,7 @@
         </template>
         <div class="main">
           <RouterView/>
+          <AppTest/>
         </div>
       </Layout>
     </div>
@@ -16,11 +17,13 @@
 <script>
 import Layout from "./components/Layout"
 import SiteAside from "./components/SiteAside"
+import AppTest from "./components/demo/App.vue"
 export default {
   name: 'App',
   components: {
     Layout,
-    SiteAside
+    SiteAside,
+    AppTest
   },
 
 }

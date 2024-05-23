@@ -25,12 +25,17 @@ Vue.config.productionTip = false
 // console.log(dom)
 
 // ③向实例注入成员
-Vue.prototype.$sayHello = function() {
-  console.log("hello !!")
-}
-var vm = new Vue({
+// Vue.prototype.$sayHello = function() {
+//   console.log("hello !!")
+// }
+// var vm = new Vue({
+//   router,
+//   render: h => h(App),
+// }).$mount('#app')
+
+// vm.$sayHello()
+ 
+new Vue({
   router,
   render: h => h(App),
 }).$mount('#app')
-
-vm.$sayHello()
