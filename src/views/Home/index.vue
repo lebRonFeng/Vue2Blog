@@ -42,10 +42,20 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
+
+  // 测试
+  // width:60%;
+  // height: 40vh;
+  // height: 300px;
+  // overflow:visible;
+  // border: 2px solid #008c8c;
+  // margin: 100px auto;
+
   ul {
     margin: 0;
     list-style: none;
     padding: 0;
+    position: relative;
   }
 }
 .carousel-container {
