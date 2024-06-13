@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container" ref="container" @wheel="dealWheel">
+  <div v-loading="isLoading" class="home-container" ref="container" @wheel="dealWheel">
     <ul
       class="carousel-container"
       :style="{
@@ -31,7 +31,6 @@
         @click="switchTo(i)"
       ></li>
     </ul>
-    <Loading v-if="isLoading"/>
   </div>
 </template>
 
@@ -135,12 +134,10 @@ import { getBanners } from "@/api/banner";
 import CarouselItem from "./Carouselitem";
 import Icon from "@/components/Icon";
 import bannersData from "./banners"
-import Loading from "@/components/Loading"
 export default {
   components: {
     CarouselItem,
     Icon,
-    Loading
   },
   data() {
     return {
