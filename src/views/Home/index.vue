@@ -31,6 +31,7 @@
         @click="switchTo(i)"
       ></li>
     </ul>
+    <Loading v-if="isLoading"/>
   </div>
 </template>
 
@@ -134,22 +135,29 @@ import { getBanners } from "@/api/banner";
 import CarouselItem from "./Carouselitem";
 import Icon from "@/components/Icon";
 import bannersData from "./banners"
+import Loading from "@/components/Loading"
 export default {
   components: {
     CarouselItem,
     Icon,
+    Loading
   },
   data() {
     return {
       banners: [],
       index: 0, // 当前显示的是第几张轮播图
       containerHeight: 0, // 整个容器的高度
-      switching: false
+      switching: false,
+      isLoading: true,
     };
   },
   async created() {
     // this.banners = await getBanners();
-    this.banners = bannersData
+    setTimeout(() => {
+      this.banners = bannersData;
+      this.isLoading = false
+    }, 3000)
+    // this.banners = bannersData
   },
   mounted() {
     this.containerHeight = this.$refs.container.clientHeight;
