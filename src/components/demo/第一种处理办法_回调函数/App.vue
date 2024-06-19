@@ -1,17 +1,17 @@
 <template>
-  <div class="app-container">
-    <!-- <Layout>
+    <div class="app-container">
+      <!-- <Layout>
         <template #left>
           <div class="aside">
             <SiteAside/>
           </div>
         </template>
-<div class="main">
-  <RouterView />
-</div>
-</Layout> -->
-    <LoadingButtonVue :click="dealBtn" />
-  </div>
+        <div class="main">
+          <RouterView/>
+        </div>
+      </Layout> -->
+      <LoadingButtonVue @clickBtn="dealBtn"/>
+    </div>
 </template>
 
 <script>
@@ -26,14 +26,12 @@ export default {
     LoadingButtonVue
   },
   methods: {
-    dealBtn(count) {
+    dealBtn(count, callback){
       console.log('子组件数据：', count)
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve('请填写账号')
-        }, 3000);
-      })
-
+      setTimeout(() => {
+        // 处理完成
+        callback('请填写账号')
+      },3000);
     }
   }
 }
@@ -42,13 +40,13 @@ export default {
 
 <style scoped lang="less">
 @import "~@/styles/mixin.less";
-
 .app-container {
   .self-fill(fixed);
 }
 
-.aside {
+.aside{
   width: 250px;
   height: 100%;
 }
+
 </style>

@@ -10,7 +10,7 @@
   <RouterView />
 </div>
 </Layout> -->
-    <LoadingButtonVue :click="dealBtn" />
+    <LoadingButtonVue @click="dealBtn" />
   </div>
 </template>
 
