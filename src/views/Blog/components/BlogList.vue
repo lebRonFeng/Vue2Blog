@@ -12,7 +12,7 @@
             <img :src="item.thumb" :alt="item.title" :title="item.title" />
           </RouterLink>
         </div>
-        <div class="main">
+        <div class="main"> 
           <RouterLink href="" :to="{
             name: 'BlogDetail',
             params:{
@@ -51,7 +51,6 @@ import Pager from '@/components/Pager';
 import fetchData from "@/mixins/fetchData.js";
 import { getBlogs } from '@/api/blog.js'
 import { formatDate } from "@/utils";
-import { RouterLink } from 'vue-router';
 export default {
   mixins: [fetchData({})],
   components: {

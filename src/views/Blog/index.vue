@@ -9,8 +9,8 @@
 
 <script>
 import Layout from '@/components/Layout';
-import BlogCategory from "./BlogCategory";
-import BlogList from "./BlogList";
+import BlogCategory from "./components/BlogCategory.vue";
+import BlogList from "./components/BlogList";
 
 export default {
   components: { Layout, BlogCategory, BlogList },
@@ -49,9 +49,6 @@ export default {
       ],
     };
   },
-  create() {
-    console.log(this.$route);
-  }
   // methods: {
   //   handleClick(item) {
   //     console.log(item, "item");
