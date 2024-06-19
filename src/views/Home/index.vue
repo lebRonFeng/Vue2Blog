@@ -137,7 +137,7 @@
 import CarouselItem from "./Carouselitem";
 import Icon from "@/components/Icon";
 import bannersData from "./banners";
-import featchData from "../../mixins/fetchData";
+import featchData from "./fetchData";
 export default {
   components: {
     CarouselItem,

@@ -4,6 +4,7 @@
       <span @click="handleClick(item)" :class="{ active: item.isSelect }">
         {{ item.name }}
       </span>
+      <span v-if="item.aside" class="aside" @click="handleClick(item)" :class="{ active: item.isSelect }">{{ item.aside }}</span>
       <!-- 显示当前组件 -->
       <RightList :list="item.children" @select="handleClick" />
     </li>
@@ -22,7 +23,9 @@ export default {
   },
   methods: {
     handleClick(item) {
-      this.$emit("select", item);
+      if (!item.isSelect) {
+        this.$emit("select", item);
+      }
     },
   },
 };
@@ -30,20 +33,30 @@ export default {
 
 <style scoped lang="less">
 @import "~@/styles/var.less";
+
 .right-list-container {
   list-style: none;
   padding: 0;
+
   .right-list-container {
     margin-left: 1em;
   }
+
   li {
     min-height: 40px;
     line-height: 40px;
     cursor: pointer;
+
     .active {
       color: @warn;
       font-weight: bold;
     }
   }
+}
+
+.aside {
+  font-size: 12px;
+  margin-left: 1em;
+  color: @gray;
 }
 </style>

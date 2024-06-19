@@ -1,17 +1,19 @@
 <template>
-  <div>
-    <h1>博客</h1>
-    <RightList :list="list" @select="handleClick" />
-  </div>
+  <layout>
+    <BlogList />
+    <template #right>
+      <BlogCategory />
+    </template>
+  </layout>
 </template>
 
 <script>
-import RightList from "./RightList";
+import Layout from '@/components/Layout';
+import BlogCategory from "./BlogCategory";
+import BlogList from "./BlogList";
 
 export default {
-  components: {
-    RightList,
-  },
+  components: { Layout, BlogCategory, BlogList },
   data() {
     return {
       list: [
@@ -47,11 +49,14 @@ export default {
       ],
     };
   },
-  methods: {
-    handleClick(item) {
-      console.log(item, "item");
-    },
-  },
+  create() {
+    console.log(this.$route);
+  }
+  // methods: {
+  //   handleClick(item) {
+  //     console.log(item, "item");
+  //   },
+  // },
 };
 </script>
 

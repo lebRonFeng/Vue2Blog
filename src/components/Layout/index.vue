@@ -29,6 +29,7 @@ export default {};
   .main {
     flex: 1 1 auto;
     overflow: hidden;
+    height: 100%;
   }
 }
 </style>

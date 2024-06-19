@@ -5,12 +5,14 @@ export default function (defaultDataValue = null) {
     data() {
       return {
         isLoading: true,
-        data: defaultDataValue
+        banners: defaultDataValue
       }
     },
     async created() {
-      this.data = await this.fetchData();
+      this.banners = await this.fetchData1() || defaultDataValue;
+      setTimeout(() => {
         this.isLoading = false;
+      },3000)
     }
   }
 }

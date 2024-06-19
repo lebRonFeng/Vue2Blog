@@ -6,11 +6,12 @@ import Message from "@/views/Message";
 
 
 const routes = [
-  { path: "/", component: Home },
-  { path: "/about", component: About },
-  { path: "/blog", component: Blog },
-  { path: "/project", component: Project },
-  { path: "/message", component: Message },
+  { name: "Home", path: "/", component: Home },
+  { name: "About", path: "/about", component: About },
+  { name: "Blog", path: "/article", component: Blog },
+  { name: "CategoryBlog", path: "/article/cate/:categoryId", component: Blog },
+  { name: "Project", path: "/project", component: Project },
+  { name: "Message", path: "/message", component: Message },
 ]
 
 
