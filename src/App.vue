@@ -10,12 +10,12 @@
   <RouterView />
 </div>
 </Layout> -->
-    <LoadingButtonVue :click="dealBtn" />
+    <FormDemo />
   </div>
 </template>
 
 <script>
-import LoadingButtonVue from './components/demo/LoadingButton.vue'
+import FormDemo from './components/demo/formDemo'
 import Layout from "./components/Layout"
 import SiteAside from "./components/SiteAside"
 export default {
@@ -23,19 +23,8 @@ export default {
   components: {
     Layout,
     SiteAside,
-    LoadingButtonVue
+    FormDemo
   },
-  methods: {
-    dealBtn(count) {
-      console.log('子组件数据：', count)
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve('请填写账号')
-        }, 3000);
-      })
-
-    }
-  }
 }
 
 </script>
