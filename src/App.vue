@@ -1,21 +1,19 @@
 <template>
   <div class="app-container">
-    <!-- <Layout>
-        <template #left>
-          <div class="aside">
-            <SiteAside/>
-          </div>
-        </template>
-<div class="main">
-  <RouterView />
-</div>
-</Layout> -->
-    <FormDemo />
+    <Layout>
+      <template #left>
+        <div class="aside">
+          <SiteAside />
+        </div>
+      </template>
+      <div class="main">
+        <RouterView />
+      </div>
+    </Layout>
   </div>
 </template>
 
 <script>
-import FormDemo from './components/demo/formDemo'
 import Layout from "./components/Layout"
 import SiteAside from "./components/SiteAside"
 export default {
@@ -23,7 +21,6 @@ export default {
   components: {
     Layout,
     SiteAside,
-    FormDemo
   },
 }
 
