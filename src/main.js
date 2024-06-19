@@ -18,12 +18,16 @@ new Vue({
 }).$mount('#app')
 
 // 随便测试一下
-// import * as blogApi from "./api/blog"
+import * as blogApi from "./api/blog"
 
-// blogApi.getBlogTypes().then(r => {
+// blogApi.getBlog().then(r => {
 //   console.log('博客分类', r)
 // })
 
-// blogApi.getBlogs(2, 10, 3).then(r => {
+// blogApi.getComment({ nickname: "昵称", content: "评论内容，纯文本", blogId: "123" }).then(r => {
+//   console.log('博客', r)
+// })
+
+// blogApi.getComments('1212').then(r => {
 //   console.log('博客', r)
 // })
