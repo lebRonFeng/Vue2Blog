@@ -6,7 +6,7 @@ import router from './router'
 Vue.config.productionTip = false
 
 import showMessage from './utils/showMessage'
-Vue.prototype.showMessage = showMessage;
+Vue.prototype.$showMessage = showMessage;
 
 // 注册全局指令
 import vLoading from './directives/loading'

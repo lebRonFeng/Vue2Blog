@@ -31,7 +31,7 @@ export async function getBlog(id) {
 /**
  * 提交评论
  */
-export async function getComment(commentInfo) {
+export async function postComment(commentInfo) {
   return await request.post('/api/comment', commentInfo)
 }
 
