@@ -4,7 +4,7 @@ import App from './App.vue'
 import "./styles/global.less"
 import router from './router'
 Vue.config.productionTip = false
-
+import "./eventBus";
 import showMessage from './utils/showMessage'
 Vue.prototype.$showMessage = showMessage;
 
