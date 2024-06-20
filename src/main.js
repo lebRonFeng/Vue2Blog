@@ -17,17 +17,21 @@ new Vue({
   render: h => h(App),
 }).$mount('#app')
 
-// 随便测试一下
-import * as blogApi from "./api/blog"
+// 测试事件总线
+// import eventBus from './eventBus';
 
-// blogApi.getBlog().then(r => {
-//   console.log('博客分类', r)
-// })
+// function handler1(data){
+//   console.log('handler1', data);
+// }
 
-// blogApi.getComment({ nickname: "昵称", content: "评论内容，纯文本", blogId: "123" }).then(r => {
-//   console.log('博客', r)
-// })
+// function handler2(data){
+//   console.log('handler2', data);
+// }
 
-// blogApi.getComments('1212').then(r => {
-//   console.log('博客', r)
-// })
+// eventBus.$on('event1', handler1);
+// eventBus.$on('event1', handler2);
+// eventBus.$on('event2', handler1);
+
+// window.eventBus = eventBus;
+// window.handler1 = handler1;
+// window.handler2 = handler2;
