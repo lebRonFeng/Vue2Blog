@@ -56,6 +56,10 @@ export default {
   components: {
     Pager
   },
+  mounted(){
+    this.$bus.$on("setMainScroll", this.handleSetMainScroll);
+    this.$ref.mainContainer.addEventListener('scroll', this.handleScroll);
+  },
   computed: {
     // 获取路由信息
     routeInfo() {
@@ -101,7 +105,18 @@ export default {
           }
         })
       }
+    },
+    handleScroll(){
+      this.$bus.$emit('mainScroll', this.$refs.mainContainer);
+    },
+    handleSetMainScroll(scrollTop){
+      this.$refs.mainContainer.scrollTop = scrollTop;
     }
+  },
+  beforeDestroy() {
+    this.$bus.$emit("mainScroll");
+    this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+    this.$bus.$off("setMainScroll", this.handleSetMainScroll);
   },
   watch:{
     async $route(){

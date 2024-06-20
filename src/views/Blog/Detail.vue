@@ -28,10 +28,21 @@ export default {
     },
     handleScroll(){
       this.$bus.$emit('mainScroll', this.$refs.mainContainer);
+    },
+    handleSetMainScroll(scrollTop){
+      this.$refs.mainContainer.scrollTop = scrollTop;
     }
   },
   mounted(){
     this.$refs.mainContainer.addEventListener("scroll", this.handleScroll)
+  },
+  created(){
+    this.$bus.$on("setMainScroll", this.handleSetMainScroll);
+  },
+  beforeDestroy() {
+    this.$bus.$emit("mainScroll");
+    this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+    this.$bus.$off("setMainScroll", this.handleSetMainScroll);
   }
 }
 </script>

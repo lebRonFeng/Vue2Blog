@@ -27,23 +27,32 @@ export default {
     this.setSelectDebounce = debounce(this.setSelect, 50)
     this.$bus.$on("mainScroll", this.setSelectDebounce)
   },
-  destroyed(){
+  destroyed() {
     this.$bus.$off("mainScroll", this.setSelectDebounce)
   },
-  updated(){
-    const hash = location.hash;
-    location.hash = "";
-    this.isLocation = false;
-    this.isLocation && setTimeout(() => {
-      loaction.hash = hash;
-    },50);
-  },
+  // mounted(){
+  //   const hash = location.hash;
+  //   location.hash = "";
+  //   this.isLocation = false;
+  //   this.isLocation && setTimeout(() => {
+  //     loaction.hash = hash;
+  //   },50);
+  // },
+  // updated(){
+  //   const hash = location.hash;
+  //   location.hash = "";
+  //   this.isLocation = false;
+  //   this.isLocation && setTimeout(() => {
+  //     loaction.hash = hash;
+  //   },50);
+  // },
   methods: {
     handleSelect(item) {
       location.hash = item.anchor;
     },
     // 设置activeAnchor为正确的值
-    setSelect() {
+    setSelect(scrollDom) {
+      if (!scrollDom) { return; }
       const range = 200;
       for (const dom of this.doms) {
         // 看一下当前这个dom元素是不是应该被选中
