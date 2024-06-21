@@ -51,15 +51,16 @@ import Pager from '@/components/Pager';
 import fetchData from "@/mixins/fetchData.js";
 import { getBlogs } from '@/api/blog.js'
 import { formatDate } from "@/utils";
+import mainScroll from "@/mixins/mainScroll.js"
 export default {
-  mixins: [fetchData({})],
+  mixins: [fetchData({}), mainScroll("container")],
   components: {
     Pager
   },
-  mounted(){
-    this.$bus.$on("setMainScroll", this.handleSetMainScroll);
-    this.$ref.mainContainer.addEventListener('scroll', this.handleScroll);
-  },
+  // mounted(){
+  //   this.$bus.$on("setMainScroll", this.handleSetMainScroll);
+  //   this.$ref.mainContainer.addEventListener('scroll', this.handleScroll);
+  // },
   computed: {
     // 获取路由信息
     routeInfo() {
@@ -73,9 +74,6 @@ export default {
       }
     }
 
-  },
-  created() {
-    console.log(this.routeInfo);
   },
   methods: {
     formatDate,
@@ -106,18 +104,18 @@ export default {
         })
       }
     },
-    handleScroll(){
-      this.$bus.$emit('mainScroll', this.$refs.mainContainer);
-    },
-    handleSetMainScroll(scrollTop){
-      this.$refs.mainContainer.scrollTop = scrollTop;
-    }
+    // handleScroll(){
+    //   this.$bus.$emit('mainScroll', this.$refs.mainContainer);
+    // },
+    // handleSetMainScroll(scrollTop){
+    //   this.$refs.mainContainer.scrollTop = scrollTop;
+    // }
   },
-  beforeDestroy() {
-    this.$bus.$emit("mainScroll");
-    this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
-    this.$bus.$off("setMainScroll", this.handleSetMainScroll);
-  },
+  // beforeDestroy() {
+  //   this.$bus.$emit("mainScroll");
+  //   this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
+  //   this.$bus.$off("setMainScroll", this.handleSetMainScroll);
+  // },
   watch:{
     async $route(){
       this.isLoading = true; 
