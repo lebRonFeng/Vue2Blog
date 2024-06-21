@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-list-container" ref="container" v-loading="isLoading">
+  <div class="blog-list-container" ref="mainContainer" v-loading="isLoading">
     <ul>
       <li v-for="item in data.rows" :key="item.id">
         <div class="thumb" v-if="item.thumb">
@@ -9,7 +9,7 @@
               id: item.id
             }
           }">
-            <img :src="item.thumb" :alt="item.title" :title="item.title" />
+            <img v-lazy="item.thumb" :alt="item.title" :title="item.title" />
           </RouterLink>
         </div>
         <div class="main"> 
@@ -53,14 +53,10 @@ import { getBlogs } from '@/api/blog.js'
 import { formatDate } from "@/utils";
 import mainScroll from "@/mixins/mainScroll.js"
 export default {
-  mixins: [fetchData({}), mainScroll("container")],
+  mixins: [fetchData({}), mainScroll("mainContainer")],
   components: {
     Pager
   },
-  // mounted(){
-  //   this.$bus.$on("setMainScroll", this.handleSetMainScroll);
-  //   this.$ref.mainContainer.addEventListener('scroll', this.handleScroll);
-  // },
   computed: {
     // 获取路由信息
     routeInfo() {
@@ -104,23 +100,12 @@ export default {
         })
       }
     },
-    // handleScroll(){
-    //   this.$bus.$emit('mainScroll', this.$refs.mainContainer);
-    // },
-    // handleSetMainScroll(scrollTop){
-    //   this.$refs.mainContainer.scrollTop = scrollTop;
-    // }
   },
-  // beforeDestroy() {
-  //   this.$bus.$emit("mainScroll");
-  //   this.$refs.mainContainer.removeEventListener("scroll", this.handleScroll);
-  //   this.$bus.$off("setMainScroll", this.handleSetMainScroll);
-  // },
   watch:{
     async $route(){
       this.isLoading = true; 
       // 滚动高度为0
-      this.$refs.container.scrollTop = 0;
+      this.$refs.mainContainer.scrollTop = 0;
       this.data = await this.fetchData();
       this.isLoading = false; 
     }
